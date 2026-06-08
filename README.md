@@ -1,15 +1,9 @@
-# Music Store Decoupled SPA
+https://huzaifa0001.github.io/music-store-management-system/
+
+# Music Store
 
 This project has a Node/Express REST API plus a routed AngularJS frontend for role-based admin, employee, and customer flows.
 
-## Run
-
-```bash
-npm install
-npm start
-```
-
-Open `http://localhost:3000`.
 
 ## Demo Logins
 
@@ -36,21 +30,7 @@ Open `http://localhost:3000`.
 - PDF receipt generation for every confirmed order.
 - Optional receipt email automation when SMTP environment variables are configured.
 
-## Optional Environment Variables
-
-```bash
-JWT_SECRET=replace-this-in-production
-STRIPE_SECRET_KEY=sk_test_...
-SMTP_HOST=smtp.example.com
-SMTP_PORT=587
-SMTP_USER=user
-SMTP_PASS=password
-SMTP_SECURE=false
-RECEIPT_FROM=receipts@example.com
-```
-
 If SMTP is not configured, receipts are still generated locally under `data/receipts/`.
 
 ## Notes
 
-The user records in `data/db.json` currently use plain-text demo passwords so the app is easy to run for coursework review. For production, hash passwords with `bcryptjs`, store data in a real database, and enforce HTTPS-only token storage policies.
