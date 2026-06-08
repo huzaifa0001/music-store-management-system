@@ -1,0 +1,23 @@
+{
+  "name": "music-store-world-class",
+  "version": "1.0.0",
+  "description": "Decoupled music store SPA with REST API, RBAC, cart checkout, inventory automation, and integrations.",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node server/index.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "chart.js": "^4.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^8.0.10",
+    "pdfkit": "^0.15.0",
+    "stripe": "^15.8.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Music Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #tab-login,
+        #tab-register,
+        #pw1-toggle,
+        #pw2-toggle,
+        #pw3-toggle {
+            display: none;
+        }
+        #panel-login    { display: block; }
+        #panel-register { display: none;  }
+        #tab-register:checked ~ .login-wrapper #panel-register { display: block; }
+        #tab-register:checked ~ .login-wrapper #panel-login    { display: none;  }
+        #tab-login:checked    ~ .login-wrapper #panel-login    { display: block; }
+        #tab-login:checked    ~ .login-wrapper #panel-register { display: none;  }
+        .auth-tabs {
+            display: flex;
+            border-bottom: 2px solid #d4c0c0;
+            background: #faf7f7;
+        }
+        .auth-tab-label {
+            flex: 1;
+            padding: 0.85rem 1rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #6c757d;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+            position: relative;
+            user-select: none;
+        }
+        .auth-tab-label:hover { background: rgba(128,0,0,0.05); color: #800000; }
+        #tab-login:not(:checked) ~ .login-wrapper .auth-tabs .lbl-login,
+        #tab-login:checked       ~ .login-wrapper .auth-tabs .lbl-login {
+            color: #800000;
+            background: white;
+        }
+        #tab-login:not(:checked) ~ .login-wrapper .auth-tabs .lbl-login::after,
+        #tab-login:checked       ~ .login-wrapper .auth-tabs .lbl-login::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; left: 0; right: 0;
+            height: 2px;
+            background: #800000;
+        }
+        #tab-register:checked ~ .login-wrapper .auth-tabs .lbl-login {
+            color: #6c757d !important;
+            background: transparent !important;
+        }
+        #tab-register:checked ~ .login-wrapper .auth-tabs .lbl-login::after {
+            display: none !important;
+        }
+        #tab-register:checked ~ .login-wrapper .auth-tabs .lbl-register {
+            color: #800000;
+            background: white;
+        }
+        #tab-register:checked ~ .login-wrapper .auth-tabs .lbl-register::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; left: 0; right: 0;
+            height: 2px;
+            background: #800000;
+        }
+        .pw-wrap { position: relative; }
+        .pw-wrap input { padding-right: 2.5rem !important; width: 100%; }
+        .pw-eye {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #aaa;
+            font-size: 1rem;
+            line-height: 1;
+            z-index: 5;
+            user-select: none;
+        }
+        .pw-eye:hover { color: #800000; }
+        #login-pw-display { display: none; }
+        #pw1-toggle:checked ~ .login-wrapper #login-pw         { display: none  !important; }
+        #pw1-toggle:checked ~ .login-wrapper #login-pw-display { display: block !important; }
+        #pw1-toggle:checked ~ .login-wrapper label[for="pw1-toggle"] .icon-eye     { display: none   !important; }
+        #pw1-toggle:checked ~ .login-wrapper label[for="pw1-toggle"] .icon-eye-off { display: inline !important; }
+        #reg-pw-display { display: none; }
+        #pw2-toggle:checked ~ .login-wrapper #reg_pw          { display: none  !important; }
+        #pw2-toggle:checked ~ .login-wrapper #reg-pw-display  { display: block !important; }
+        #pw2-toggle:checked ~ .login-wrapper label[for="pw2-toggle"] .icon-eye     { display: none   !important; }
+        #pw2-toggle:checked ~ .login-wrapper label[for="pw2-toggle"] .icon-eye-off { display: inline !important; }
+        #reg-confirm-display { display: none; }
+        #pw3-toggle:checked ~ .login-wrapper #reg_confirm          { display: none  !important; }
+        #pw3-toggle:checked ~ .login-wrapper #reg-confirm-display  { display: block !important; }
+        #pw3-toggle:checked ~ .login-wrapper label[for="pw3-toggle"] .icon-eye     { display: none   !important; }
+        #pw3-toggle:checked ~ .login-wrapper label[for="pw3-toggle"] .icon-eye-off { display: inline !important; }
+        .match-msg {
+            font-size: 0.78rem;
+            margin-top: 0.3rem;
+            color: #6c757d;
+            display: none;
+        }
+        #reg_confirm:not(:placeholder-shown) ~ .match-msg { display: block; }
+        .divider-text {
+            position: relative; text-align: center;
+            margin: 1rem 0; color: #aaa; font-size: 0.78rem;
+        }
+        .divider-text::before,
+        .divider-text::after {
+            content: ''; position: absolute; top: 50%;
+            width: 42%; height: 1px; background: #d4c0c0;
+        }
+        .divider-text::before { left: 0; }
+        .divider-text::after  { right: 0; }
+    </style>
+</head>
+<body>
+    <input type="radio"    name="auth-tab" id="tab-login"    checked>
+    <input type="radio"    name="auth-tab" id="tab-register">
+    <input type="checkbox" id="pw1-toggle">
+    <input type="checkbox" id="pw2-toggle">
+    <input type="checkbox" id="pw3-toggle">
+    <div class="login-wrapper">
+        <div class="login-card" style="max-width:440px;">
+            <div class="login-header">
+                <div class="mb-2">
+                    <i class="bi bi-music-note-beamed" style="font-size:2.2rem;color:#c9a84c;"></i>
+                </div>
+                <h1>Music Store</h1>
+                <p>Management System</p>
+            </div>
+            <div class="auth-tabs">
+                <label for="tab-login" class="auth-tab-label lbl-login">
+                    <i class="bi bi-box-arrow-in-right me-1"></i>Sign In
+                </label>
+                <label for="tab-register" class="auth-tab-label lbl-register">
+                    <i class="bi bi-person-plus me-1"></i>Create Account
+                </label>
+            </div>
+            <div id="panel-login" class="login-body">
+                <h5 class="mb-1" style="color:var(--navy);font-family:'Playfair Display',serif;">Welcome Back</h5>
+                <p class="text-muted mb-3" style="font-size:0.85rem;">Sign in to your account to continue</p>
+                <form action="login_process.php" method="post">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">
+                            <i class="bi bi-person me-1"></i>Username
+                        </label>
+                        <input type="text" id="username" name="username"
+                               class="form-control" placeholder="Enter your username" required>
+                    </div>
+                    <div class="mb-1">
+                        <label for="login-pw" class="form-label">
+                            <i class="bi bi-lock me-1"></i>Password
+                        </label>
+                        <div class="pw-wrap">
+                            <input type="password" id="login-pw" name="password"
+                                   class="form-control" placeholder="Enter your password" required>
+                            <input type="text" id="login-pw-display"
+                                   class="form-control" placeholder="Enter your password"
+                                   aria-hidden="true" tabindex="-1" autocomplete="off">
+                            <label for="pw1-toggle" class="pw-eye">
+                                <i class="bi bi-eye       icon-eye"></i>
+                                <i class="bi bi-eye-slash icon-eye-off" style="display:none;"></i>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="text-end mb-4">
+                        <a href="forgot_password.php"
+                           style="font-size:0.8rem;color:var(--maroon);text-decoration:none;">
+                            Forgot password?
+                        </a>
+                    </div>
+                    <button type="submit" class="btn btn-maroon w-100 py-2">
+                        <i class="bi bi-box-arrow-in-right me-2"></i>Login
+                    </button>
+                </form>
+                <a href="public/app.html#!/login" class="btn btn-navy w-100 py-2 mt-3">
+                    <i class="bi bi-lightning-charge me-2"></i>Open New SPA Login
+                </a>
+                <div class="divider-text mt-3">or</div>
+                <p class="text-center mb-0" style="font-size:0.85rem;color:var(--text-muted);">
+                    Don't have an account?
+                    <label for="tab-register" style="color:var(--maroon);font-weight:600;cursor:pointer;">
+                        Create one here
+                    </label>
+                </p>
+            </div>
+            <div id="panel-register" class="login-body">
+                <h5 class="mb-1" style="color:var(--navy);font-family:'Playfair Display',serif;">Create Account</h5>
+                <p class="text-muted mb-3" style="font-size:0.85rem;">Fill in the details below to get started</p>
+                <form action="register_process.php" method="post">
+                    <div class="row g-2 mb-3">
+                        <div class="col-6">
+                            <label for="reg_first_name" class="form-label">
+                                <i class="bi bi-person me-1"></i>First Name
+                            </label>
+                            <input type="text" id="reg_first_name" name="first_name"
+                                   class="form-control" placeholder="e.g. Ahmed" required>
+                        </div>
+                        <div class="col-6">
+                            <label for="reg_last_name" class="form-label">Last Name</label>
+                            <input type="text" id="reg_last_name" name="last_name"
+                                   class="form-control" placeholder="e.g. Khan" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="reg_email" class="form-label">
+                            <i class="bi bi-envelope me-1"></i>Email Address
+                        </label>
+                        <input type="email" id="reg_email" name="email"
+                               class="form-control" placeholder="e.g. ahmed@email.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="reg_username" class="form-label">
+                            <i class="bi bi-at me-1"></i>Username
+                        </label>
+                        <input type="text" id="reg_username" name="username"
+                               class="form-control" placeholder="Choose a username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="reg_pw" class="form-label">
+                            <i class="bi bi-lock me-1"></i>Password
+                        </label>
+                        <div class="pw-wrap">
+                            <input type="password" id="reg_pw" name="password"
+                                   class="form-control" placeholder="Create a password" required>
+                            <input type="text" id="reg-pw-display"
+                                   class="form-control" placeholder="Create a password"
+                                   aria-hidden="true" tabindex="-1" autocomplete="off">
+                            <label for="pw2-toggle" class="pw-eye">
+                                <i class="bi bi-eye       icon-eye"></i>
+                                <i class="bi bi-eye-slash icon-eye-off" style="display:none;"></i>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="reg_confirm" class="form-label">
+                            <i class="bi bi-lock-fill me-1"></i>Confirm Password
+                        </label>
+                        <div class="pw-wrap">
+                            <input type="password" id="reg_confirm" name="confirm_password"
+                                   class="form-control" placeholder="Re-enter your password" required>
+                            <input type="text" id="reg-confirm-display"
+                                   class="form-control" placeholder="Re-enter your password"
+                                   aria-hidden="true" tabindex="-1" autocomplete="off">
+                            <label for="pw3-toggle" class="pw-eye">
+                                <i class="bi bi-eye       icon-eye"></i>
+                                <i class="bi bi-eye-slash icon-eye-off" style="display:none;"></i>
+                            </label>
+                        </div>
+                        <div class="match-msg">
+                            <i class="bi bi-info-circle me-1"></i>Make sure both passwords are identical
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-navy w-100 py-2">
+                        <i class="bi bi-person-check me-2"></i>Create Account
+                    </button>
+                </form>
+                <a href="public/app.html#!/login" class="btn btn-maroon w-100 py-2 mt-3">
+                    <i class="bi bi-lightning-charge me-2"></i>Open New SPA Register
+                </a>
+                <div class="divider-text mt-3">or</div>
+                <p class="text-center mb-0" style="font-size:0.85rem;color:var(--text-muted);">
+                    Already have an account?
+                    <label for="tab-login" style="color:var(--maroon);font-weight:600;cursor:pointer;">
+                        Sign in here
+                    </label>
+                </p>
+            </div>
+            <div class="text-center py-3 border-top" style="font-size:0.8rem;color:var(--text-muted);">
+                © 2026 Music Store Management System | Designed with <span style="color:var(--maroon);">♥</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

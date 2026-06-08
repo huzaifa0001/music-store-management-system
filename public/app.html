@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="musicStoreApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Store</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="css/spa.css">
+</head>
+<body ng-controller="ShellController as shell">
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container">
+      <a class="navbar-brand" href="#!/store">
+        <span class="navbar-brand-text">
+          <i class="bi bi-music-note-beamed me-1" style="color:var(--gold);"></i>Music Store
+          <small>Premium Digital Store</small>
+        </span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item" ng-if="shell.isAdmin()"><a class="nav-link" href="#!/dashboard"><i class="bi bi-speedometer2 me-1"></i>Dashboard</a></li>
+          <li class="nav-item" ng-if="shell.isAdmin()"><a class="nav-link" href="#!/inventory"><i class="bi bi-box-seam me-1"></i>Inventory</a></li>
+          <li class="nav-item" ng-if="shell.isAdmin()"><a class="nav-link" href="#!/sales"><i class="bi bi-receipt me-1"></i>Sales</a></li>
+          <li class="nav-item"><a class="nav-link" href="#!/home"><i class="bi bi-house me-1"></i>Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#!/products"><i class="bi bi-shop me-1"></i>Products</a></li>
+          <li class="nav-item">
+            <a class="nav-link cart-link" href="#!/cart">
+              <i class="bi bi-bag me-1"></i>Cart
+              <span class="cart-badge">{{ shell.cartCount() }}</span>
+            </a>
+          </li>
+          <li class="nav-item" ng-if="shell.user && !shell.isAdmin()"><a class="nav-link" href="#!/profile"><i class="bi bi-person-circle me-1"></i>Account</a></li>
+          <li class="nav-item" ng-if="!shell.user"><a class="nav-link" href="#!/login"><i class="bi bi-box-arrow-in-right me-1"></i>Login</a></li>
+          <li class="nav-item" ng-if="shell.user"><button class="nav-link logout-link nav-button" ng-click="shell.logout()"><i class="bi bi-box-arrow-right me-1"></i>Logout</button></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main ng-view class="spa-view"></main>
+
+  <footer>
+    <div class="container">
+      © 2026 <span>Music Store</span> | Premium instruments, vinyl, and studio gear
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-route/1.8.3/angular-route.min.js"></script>
+  <script src="../node_modules/chart.js/dist/chart.umd.js"></script>
+  <script>window.Chart || document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.3/chart.umd.min.js"><\\/script>');</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
