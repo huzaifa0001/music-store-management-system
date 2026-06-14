@@ -1,0 +1,551 @@
+{
+  "users": [
+    {
+      "id": "u-admin",
+      "firstName": "Store",
+      "lastName": "Admin",
+      "email": "admin@music.test",
+      "username": "admin",
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
+      "id": "u-employee",
+      "firstName": "Maya",
+      "lastName": "Employee",
+      "email": "employee@music.test",
+      "username": "employee",
+      "password": "employee123",
+      "role": "employee"
+    },
+    {
+      "id": "u-customer",
+      "firstName": "Customer",
+      "lastName": "Demo",
+      "email": "customer@music.test",
+      "username": "customer",
+      "password": "customer123",
+      "role": "customer"
+    },
+    {
+      "id": "u-mq5io3mm-xhv2ug",
+      "firstName": "faiz",
+      "lastName": "waheed",
+      "email": "faizi123@gmail.com",
+      "username": "faizi",
+      "password": "123",
+      "role": "customer"
+    }
+  ],
+  "inventory": [
+    {
+      "id": "p-guitar-01",
+      "name": "Mahogany Acoustic Guitar",
+      "category": "Instrument",
+      "quantity": 4,
+      "lowStockThreshold": 4,
+      "price": 45000,
+      "image": "https://images.unsplash.com/photo-1516924962500-2b4b3b99ea02?auto=format&fit=crop&w=900&q=80",
+      "description": "A warm, resonant acoustic built for expressive songwriting, studio tracking, and intimate live sets.",
+      "details": [
+        "Balanced mahogany tone with smooth midrange response",
+        "Setup checked before dispatch",
+        "Ideal for beginners, performers, and collectors"
+      ],
+      "spotifyPreviewUrl": "",
+      "updatedAt": "2026-06-14T09:27:06.305Z"
+    },
+    {
+      "id": "p-keyboard-01",
+      "name": "StagePro 61-Key Keyboard",
+      "category": "Instrument",
+      "quantity": 10,
+      "lowStockThreshold": 5,
+      "price": 68000,
+      "image": "https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=900&q=80",
+      "description": "A responsive performance keyboard for stage, lessons, and production workflows.",
+      "details": [
+        "61 expressive keys with performance-ready controls",
+        "Compact profile for home studios and live rigs",
+        "Low-stock item monitored by dashboard alerts"
+      ],
+      "spotifyPreviewUrl": "",
+      "updatedAt": "2026-06-08T17:53:00.343Z"
+    },
+    {
+      "id": "p-vinyl-01",
+      "name": "Kind of Blue Vinyl",
+      "category": "Album",
+      "quantity": 9,
+      "lowStockThreshold": 5,
+      "price": 8500,
+      "image": "https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?auto=format&fit=crop&w=900&q=80",
+      "description": "A collector-friendly vinyl edition with an in-browser audio preview experience.",
+      "details": [
+        "Premium album presentation for jazz listeners",
+        "Preview player syncs animation with playback",
+        "Ships in protective packaging"
+      ],
+      "spotifyPreviewUrl": "https://p.scdn.co/mp3-preview/6f30f8e73f9a2a8c7d7a68ef0ed2ad33b227dc3b",
+      "updatedAt": "2026-06-08T17:51:39.878Z"
+    },
+    {
+      "id": "p-amp-01",
+      "name": "TubeTone Practice Amp",
+      "category": "Accessory",
+      "quantity": 8,
+      "lowStockThreshold": 3,
+      "price": 32000,
+      "image": "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&w=900&q=80",
+      "description": "A compact amp with character-rich tone for daily practice and small-room sessions.",
+      "details": [
+        "Portable design with classic tube-inspired response",
+        "Works well with electric guitars and pedals",
+        "Recommended for practice spaces and small studios"
+      ],
+      "spotifyPreviewUrl": "",
+      "updatedAt": "2026-06-08T17:53:02.357Z"
+    }
+  ],
+  "customers": [
+    {
+      "id": "cust-demo",
+      "userId": "u-customer",
+      "name": "ali",
+      "email": "ali@gmail.com",
+      "phone": "23953523658932465",
+      "address": "dhvsketcms.,.gjgltyjtyd",
+      "createdAt": "2026-06-08T17:25:25.802Z",
+      "updatedAt": "2026-06-14T09:27:06.305Z"
+    },
+    {
+      "id": "cust-mq5io3mn-xkbx84",
+      "userId": "u-mq5io3mm-xhv2ug",
+      "name": "faiz waheed",
+      "email": "faizi123@gmail.com",
+      "phone": "",
+      "address": "",
+      "createdAt": "2026-06-08T18:00:39.263Z",
+      "updatedAt": "2026-06-08T18:00:39.263Z"
+    }
+  ],
+  "sales": [
+    {
+      "id": "sale-mqdkys75-xfdfza",
+      "source": "online-order",
+      "orderId": "order-mqdkys75-n4evhh",
+      "customerId": "cust-demo",
+      "customer": {
+        "id": "cust-demo",
+        "userId": "u-customer",
+        "name": "ali",
+        "email": "ali@gmail.com",
+        "phone": "23953523658932465",
+        "address": "dhvsketcms.,.gjgltyjtyd",
+        "createdAt": "2026-06-08T17:25:25.802Z",
+        "updatedAt": "2026-06-14T09:27:06.305Z"
+      },
+      "customerName": "ali",
+      "quantity": 1,
+      "total": 45000,
+      "items": [
+        {
+          "productId": "p-guitar-01",
+          "name": "Mahogany Acoustic Guitar",
+          "quantity": 1,
+          "price": 45000,
+          "lineTotal": 45000
+        }
+      ],
+      "createdAt": "2026-06-14T09:27:06.305Z"
+    },
+    {
+      "id": "sale-mq5icjfr-mm07l2",
+      "source": "online-order",
+      "orderId": "order-mq5icjfr-jmuu8w",
+      "customerId": "cust-demo",
+      "customer": {
+        "id": "cust-demo",
+        "userId": "u-customer",
+        "name": "Huzaifa Bin Naseer",
+        "email": "huzaifabinnaseer.123@gmail.com",
+        "phone": "03255763554",
+        "address": "house no.1",
+        "createdAt": "2026-06-08T17:25:25.802Z",
+        "updatedAt": "2026-06-08T17:51:39.879Z"
+      },
+      "customerName": "Huzaifa Bin Naseer",
+      "quantity": 4,
+      "total": 153500,
+      "items": [
+        {
+          "productId": "p-guitar-01",
+          "name": "Mahogany Acoustic Guitar",
+          "quantity": 1,
+          "price": 45000,
+          "lineTotal": 45000
+        },
+        {
+          "productId": "p-keyboard-01",
+          "name": "StagePro 61-Key Keyboard",
+          "quantity": 1,
+          "price": 68000,
+          "lineTotal": 68000
+        },
+        {
+          "productId": "p-vinyl-01",
+          "name": "Kind of Blue Vinyl",
+          "quantity": 1,
+          "price": 8500,
+          "lineTotal": 8500
+        },
+        {
+          "productId": "p-amp-01",
+          "name": "TubeTone Practice Amp",
+          "quantity": 1,
+          "price": 32000,
+          "lineTotal": 32000
+        }
+      ],
+      "createdAt": "2026-06-08T17:51:39.879Z"
+    },
+    {
+      "id": "sale-mq5hgodd-p5d6xa",
+      "productId": "p-amp-01",
+      "productName": "TubeTone Practice Amp",
+      "customerName": "Walk-in customer",
+      "quantity": 1,
+      "total": 32000,
+      "createdAt": "2026-06-08T17:26:53.281Z"
+    },
+    {
+      "id": "sale-mq5hgktv-442mnj",
+      "productId": "p-vinyl-01",
+      "productName": "Kind of Blue Vinyl",
+      "customerName": "Walk-in customer",
+      "quantity": 1,
+      "total": 8500,
+      "createdAt": "2026-06-08T17:26:48.691Z"
+    },
+    {
+      "id": "sale-mq5hgi46-6snzt1",
+      "productId": "p-keyboard-01",
+      "productName": "StagePro 61-Key Keyboard",
+      "customerName": "Walk-in customer",
+      "quantity": 1,
+      "total": 68000,
+      "createdAt": "2026-06-08T17:26:45.174Z"
+    },
+    {
+      "id": "sale-mq5hgenp-526w21",
+      "productId": "p-guitar-01",
+      "productName": "Mahogany Acoustic Guitar",
+      "customerName": "Walk-in customer",
+      "quantity": 1,
+      "total": 45000,
+      "createdAt": "2026-06-08T17:26:40.693Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "order-mqdkys75-n4evhh",
+      "userId": "u-customer",
+      "customerId": "cust-demo",
+      "customer": {
+        "id": "cust-demo",
+        "userId": "u-customer",
+        "name": "ali",
+        "email": "ali@gmail.com",
+        "phone": "23953523658932465",
+        "address": "dhvsketcms.,.gjgltyjtyd",
+        "createdAt": "2026-06-08T17:25:25.802Z",
+        "updatedAt": "2026-06-14T09:27:06.305Z"
+      },
+      "items": [
+        {
+          "productId": "p-guitar-01",
+          "name": "Mahogany Acoustic Guitar",
+          "quantity": 1,
+          "price": 45000,
+          "lineTotal": 45000
+        }
+      ],
+      "total": 45000,
+      "payment": {
+        "mode": "mock",
+        "status": "succeeded"
+      },
+      "status": "confirmed",
+      "createdAt": "2026-06-14T09:27:06.305Z"
+    },
+    {
+      "id": "order-mq5icjfr-jmuu8w",
+      "userId": "u-customer",
+      "customerId": "cust-demo",
+      "customer": {
+        "id": "cust-demo",
+        "userId": "u-customer",
+        "name": "Huzaifa Bin Naseer",
+        "email": "huzaifabinnaseer.123@gmail.com",
+        "phone": "03255763554",
+        "address": "house no.1",
+        "createdAt": "2026-06-08T17:25:25.802Z",
+        "updatedAt": "2026-06-08T17:51:39.879Z"
+      },
+      "items": [
+        {
+          "productId": "p-guitar-01",
+          "name": "Mahogany Acoustic Guitar",
+          "quantity": 1,
+          "price": 45000,
+          "lineTotal": 45000
+        },
+        {
+          "productId": "p-keyboard-01",
+          "name": "StagePro 61-Key Keyboard",
+          "quantity": 1,
+          "price": 68000,
+          "lineTotal": 68000
+        },
+        {
+          "productId": "p-vinyl-01",
+          "name": "Kind of Blue Vinyl",
+          "quantity": 1,
+          "price": 8500,
+          "lineTotal": 8500
+        },
+        {
+          "productId": "p-amp-01",
+          "name": "TubeTone Practice Amp",
+          "quantity": 1,
+          "price": 32000,
+          "lineTotal": 32000
+        }
+      ],
+      "total": 153500,
+      "payment": {
+        "mode": "mock",
+        "status": "succeeded"
+      },
+      "status": "confirmed",
+      "createdAt": "2026-06-08T17:51:39.879Z"
+    },
+    {
+      "id": "order-mq5hesve-se2bdb",
+      "userId": "u-customer",
+      "customer": {
+        "name": "Customer Demo",
+        "email": "customer@music.test",
+        "address": "gsdg"
+      },
+      "items": [
+        {
+          "productId": "p-guitar-01",
+          "name": "Mahogany Acoustic Guitar",
+          "quantity": 1,
+          "price": 45000,
+          "lineTotal": 45000
+        },
+        {
+          "productId": "p-keyboard-01",
+          "name": "StagePro 61-Key Keyboard",
+          "quantity": 1,
+          "price": 68000,
+          "lineTotal": 68000
+        },
+        {
+          "productId": "p-vinyl-01",
+          "name": "Kind of Blue Vinyl",
+          "quantity": 1,
+          "price": 8500,
+          "lineTotal": 8500
+        },
+        {
+          "productId": "p-amp-01",
+          "name": "TubeTone Practice Amp",
+          "quantity": 1,
+          "price": 32000,
+          "lineTotal": 32000
+        }
+      ],
+      "total": 153500,
+      "payment": {
+        "mode": "mock",
+        "status": "succeeded"
+      },
+      "createdAt": "2026-06-08T17:25:25.802Z"
+    }
+  ],
+  "orderItems": [
+    {
+      "id": "orderitem-mqdkys76-mjjcfg",
+      "orderId": "order-mqdkys75-n4evhh",
+      "productId": "p-guitar-01",
+      "name": "Mahogany Acoustic Guitar",
+      "quantity": 1,
+      "price": 45000,
+      "lineTotal": 45000
+    },
+    {
+      "id": "orderitem-mq5icjfr-q5jazg",
+      "orderId": "order-mq5icjfr-jmuu8w",
+      "productId": "p-guitar-01",
+      "name": "Mahogany Acoustic Guitar",
+      "quantity": 1,
+      "price": 45000,
+      "lineTotal": 45000
+    },
+    {
+      "id": "orderitem-mq5icjfr-wltyf8",
+      "orderId": "order-mq5icjfr-jmuu8w",
+      "productId": "p-keyboard-01",
+      "name": "StagePro 61-Key Keyboard",
+      "quantity": 1,
+      "price": 68000,
+      "lineTotal": 68000
+    },
+    {
+      "id": "orderitem-mq5icjfr-7x91ft",
+      "orderId": "order-mq5icjfr-jmuu8w",
+      "productId": "p-vinyl-01",
+      "name": "Kind of Blue Vinyl",
+      "quantity": 1,
+      "price": 8500,
+      "lineTotal": 8500
+    },
+    {
+      "id": "orderitem-mq5icjfr-wo4l0s",
+      "orderId": "order-mq5icjfr-jmuu8w",
+      "productId": "p-amp-01",
+      "name": "TubeTone Practice Amp",
+      "quantity": 1,
+      "price": 32000,
+      "lineTotal": 32000
+    }
+  ],
+  "inventoryLogs": [
+    {
+      "id": "invlog-mqdkys76-czxlls",
+      "productId": "p-guitar-01",
+      "productName": "Mahogany Acoustic Guitar",
+      "change": -1,
+      "quantityAfter": 4,
+      "reason": "Customer checkout",
+      "actorId": "u-customer",
+      "referenceId": "order-mqdkys75-n4evhh",
+      "createdAt": "2026-06-14T09:27:06.306Z"
+    },
+    {
+      "id": "invlog-mq5ieb21-rp3p26",
+      "productId": "p-amp-01",
+      "productName": "TubeTone Practice Amp",
+      "change": 5,
+      "quantityAfter": 8,
+      "reason": "Inventory updated by staff",
+      "actorId": "u-admin",
+      "referenceId": "p-amp-01",
+      "createdAt": "2026-06-08T17:53:02.329Z"
+    },
+    {
+      "id": "invlog-mq5ie9iv-mz3fpn",
+      "productId": "p-keyboard-01",
+      "productName": "StagePro 61-Key Keyboard",
+      "change": 5,
+      "quantityAfter": 10,
+      "reason": "Inventory updated by staff",
+      "actorId": "u-admin",
+      "referenceId": "p-keyboard-01",
+      "createdAt": "2026-06-08T17:53:00.343Z"
+    },
+    {
+      "id": "invlog-mq5ie7pd-t3ez97",
+      "productId": "p-keyboard-01",
+      "productName": "StagePro 61-Key Keyboard",
+      "change": 5,
+      "quantityAfter": 5,
+      "reason": "Inventory updated by staff",
+      "actorId": "u-admin",
+      "referenceId": "p-keyboard-01",
+      "createdAt": "2026-06-08T17:52:57.985Z"
+    },
+    {
+      "id": "invlog-mq5icjfr-abth4l",
+      "productId": "p-amp-01",
+      "productName": "TubeTone Practice Amp",
+      "change": -1,
+      "quantityAfter": 3,
+      "reason": "Customer checkout",
+      "actorId": "u-customer",
+      "referenceId": "order-mq5icjfr-jmuu8w",
+      "createdAt": "2026-06-08T17:51:39.879Z"
+    },
+    {
+      "id": "invlog-mq5icjfr-kfqc8m",
+      "productId": "p-vinyl-01",
+      "productName": "Kind of Blue Vinyl",
+      "change": -1,
+      "quantityAfter": 9,
+      "reason": "Customer checkout",
+      "actorId": "u-customer",
+      "referenceId": "order-mq5icjfr-jmuu8w",
+      "createdAt": "2026-06-08T17:51:39.879Z"
+    },
+    {
+      "id": "invlog-mq5icjfr-zoyy68",
+      "productId": "p-keyboard-01",
+      "productName": "StagePro 61-Key Keyboard",
+      "change": -1,
+      "quantityAfter": 0,
+      "reason": "Customer checkout",
+      "actorId": "u-customer",
+      "referenceId": "order-mq5icjfr-jmuu8w",
+      "createdAt": "2026-06-08T17:51:39.879Z"
+    },
+    {
+      "id": "invlog-mq5icjfr-f9fb9a",
+      "productId": "p-guitar-01",
+      "productName": "Mahogany Acoustic Guitar",
+      "change": -1,
+      "quantityAfter": 5,
+      "reason": "Customer checkout",
+      "actorId": "u-customer",
+      "referenceId": "order-mq5icjfr-jmuu8w",
+      "createdAt": "2026-06-08T17:51:39.879Z"
+    }
+  ],
+  "employeeActivityLogs": [
+    {
+      "id": "act-mq5ieb2t-bfdw65",
+      "userId": "u-admin",
+      "role": "admin",
+      "action": "Updated product",
+      "details": "TubeTone Practice Amp was updated.",
+      "createdAt": "2026-06-08T17:53:02.357Z"
+    },
+    {
+      "id": "act-mq5ieb21-qfkkp6",
+      "userId": "u-admin",
+      "role": "admin",
+      "action": "Updated product",
+      "details": "TubeTone Practice Amp was updated.",
+      "createdAt": "2026-06-08T17:53:02.329Z"
+    },
+    {
+      "id": "act-mq5ie9iv-p3co8d",
+      "userId": "u-admin",
+      "role": "admin",
+      "action": "Updated product",
+      "details": "StagePro 61-Key Keyboard was updated.",
+      "createdAt": "2026-06-08T17:53:00.343Z"
+    },
+    {
+      "id": "act-mq5ie7pd-ya012c",
+      "userId": "u-admin",
+      "role": "admin",
+      "action": "Updated product",
+      "details": "StagePro 61-Key Keyboard was updated.",
+      "createdAt": "2026-06-08T17:52:57.985Z"
+    }
+  ],
+  "suppliers": []
+}
